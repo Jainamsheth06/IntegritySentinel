@@ -254,11 +254,11 @@
                                 <select class="action-risk-select level-{{ case.priority|lower }}"
                                     data-case-id="{{ case.id }}" onchange="changeCasePriority(this)"
                                     title="Select Case Priority">
-                                    <option value="HIGH" {% if case.priority=='HIGH' %}selected{% endif %}>🔴 High
+                                    <option value="HIGH" {% if case.priority == 'HIGH' %}selected{% endif %}>🔴 High
                                     </option>
-                                    <option value="MEDIUM" {% if case.priority=='MEDIUM' %}selected{% endif %}>🟡 Medium
+                                    <option value="MEDIUM" {% if case.priority == 'MEDIUM' %}selected{% endif %}>🟡 Medium
                                     </option>
-                                    <option value="LOW" {% if case.priority=='LOW' %}selected{% endif %}>🟢 Low</option>
+                                    <option value="LOW" {% if case.priority == 'LOW' %}selected{% endif %}>🟢 Low</option>
                                 </select>
                                 {% if request.user.is_superuser %}
                                 <a href="/admin/arrestor/fraudcase/{{ case.id }}/delete/" target="_blank"

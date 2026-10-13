@@ -218,11 +218,11 @@
                                     <select class="action-risk-select level-{{ item.risk_level|lower }}"
                                         data-type="transaction" data-id="{{ item.id }}"
                                         onchange="updateActionRiskLevel(this)" title="Select Threat Level">
-                                        <option value="HIGH" {% if item.risk_level=='HIGH' %}selected{% endif %}>🔴 High
+                                        <option value="HIGH" {% if item.risk_level == 'HIGH' %}selected{% endif %}>🔴 High
                                         </option>
-                                        <option value="MEDIUM" {% if item.risk_level=='MEDIUM' %}selected{% endif %}>🟡
+                                        <option value="MEDIUM" {% if item.risk_level == 'MEDIUM' %}selected{% endif %}>🟡
                                             Medium</option>
-                                        <option value="LOW" {% if item.risk_level=='LOW' %}selected{% endif %}>🟢 Low
+                                        <option value="LOW" {% if item.risk_level == 'LOW' %}selected{% endif %}>🟢 Low
                                         </option>
                                     </select>
                                     {% if request.user.is_superuser %}
@@ -317,11 +317,11 @@
                                     <select class="action-risk-select level-{{ item.risk_level|lower }}"
                                         data-type="email" data-id="{{ item.id }}" onchange="updateActionRiskLevel(this)"
                                         title="Select Threat Level">
-                                        <option value="HIGH" {% if item.risk_level=='HIGH' %}selected{% endif %}>🔴 High
+                                        <option value="HIGH" {% if item.risk_level == 'HIGH' %}selected{% endif %}>🔴 High
                                         </option>
-                                        <option value="MEDIUM" {% if item.risk_level=='MEDIUM' %}selected{% endif %}>🟡
+                                        <option value="MEDIUM" {% if item.risk_level == 'MEDIUM' %}selected{% endif %}>🟡
                                             Medium</option>
-                                        <option value="LOW" {% if item.risk_level=='LOW' %}selected{% endif %}>🟢 Low
+                                        <option value="LOW" {% if item.risk_level == 'LOW' %}selected{% endif %}>🟢 Low
                                         </option>
                                     </select>
                                     {% if request.user.is_superuser %}
@@ -410,11 +410,11 @@
                                     <select class="action-risk-select level-{{ item.risk_level|lower }}"
                                         data-type="call" data-id="{{ item.id }}" onchange="updateActionRiskLevel(this)"
                                         title="Select Threat Level">
-                                        <option value="HIGH" {% if item.risk_level=='HIGH' %}selected{% endif %}>🔴 High
+                                        <option value="HIGH" {% if item.risk_level == 'HIGH' %}selected{% endif %}>🔴 High
                                         </option>
-                                        <option value="MEDIUM" {% if item.risk_level=='MEDIUM' %}selected{% endif %}>🟡
+                                        <option value="MEDIUM" {% if item.risk_level == 'MEDIUM' %}selected{% endif %}>🟡
                                             Medium</option>
-                                        <option value="LOW" {% if item.risk_level=='LOW' %}selected{% endif %}>🟢 Low
+                                        <option value="LOW" {% if item.risk_level == 'LOW' %}selected{% endif %}>🟢 Low
                                         </option>
                                     </select>
                                     {% if request.user.is_superuser %}
@@ -502,11 +502,11 @@
                                     <select class="action-risk-select level-{{ item.risk_level|lower }}"
                                         data-type="message" data-id="{{ item.id }}"
                                         onchange="updateActionRiskLevel(this)" title="Select Threat Level">
-                                        <option value="HIGH" {% if item.risk_level=='HIGH' %}selected{% endif %}>🔴 High
+                                        <option value="HIGH" {% if item.risk_level == 'HIGH' %}selected{% endif %}>🔴 High
                                         </option>
-                                        <option value="MEDIUM" {% if item.risk_level=='MEDIUM' %}selected{% endif %}>🟡
+                                        <option value="MEDIUM" {% if item.risk_level == 'MEDIUM' %}selected{% endif %}>🟡
                                             Medium</option>
-                                        <option value="LOW" {% if item.risk_level=='LOW' %}selected{% endif %}>🟢 Low
+                                        <option value="LOW" {% if item.risk_level == 'LOW' %}selected{% endif %}>🟢 Low
                                         </option>
                                     </select>
                                     {% if request.user.is_superuser %}
