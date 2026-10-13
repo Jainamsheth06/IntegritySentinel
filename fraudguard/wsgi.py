@@ -9,7 +9,7 @@ if os.environ.get('VERCEL'):
     try:
         tmp_db = Path('/tmp/db.sqlite3')
         base_db = Path(__file__).resolve().parent.parent / 'db.sqlite3'
-        if base_db.exists() and not tmp_db.exists():
+        if base_db.exists():
             shutil.copy2(base_db, tmp_db)
     except Exception as e:
         print(f"Error copying initial database: {e}")

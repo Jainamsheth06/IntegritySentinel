@@ -110,8 +110,7 @@
             {% for message in messages %}
             <div
                 class="flash-message {% if 'error' in message.tags %}flash-error{% elif 'warning' in message.tags %}flash-warning{% else %}flash-success{% endif %}">
-                <span>{% if 'error' in message.tags %}🚨{% elif 'warning' in message.tags %}⚠️{% else %}✅{% endif
-                    %}</span>
+                <span>{% if 'error' in message.tags %}🚨{% elif 'warning' in message.tags %}⚠️{% else %}✅{% endif %}</span>
                 <div>{{ message }}</div>
             </div>
             {% endfor %}
@@ -278,8 +277,7 @@
             </div>
 
             <h3 class="section-title">
-                {% if request.user.is_authenticated %}📋 Your Email Scans{% else %}🌐 Recent Email Scans (Preview){%
-                endif %}
+                {% if request.user.is_authenticated %}📋 Your Email Scans{% else %}🌐 Recent Email Scans (Preview){% endif %}
             </h3>
             <div class="table-container">
                 <table class="data-table">
@@ -374,8 +372,7 @@
             </div>
 
             <h3 class="section-title">
-                {% if request.user.is_authenticated %}📋 Your Call Logs{% else %}🌐 Recent Call Scans (Preview){% endif
-                %}
+                {% if request.user.is_authenticated %}📋 Your Call Logs{% else %}🌐 Recent Call Scans (Preview){% endif %}
             </h3>
             <div class="table-container">
                 <table class="data-table">
@@ -467,8 +464,7 @@
             </div>
 
             <h3 class="section-title">
-                {% if request.user.is_authenticated %}📋 Your Message Scans{% else %}🌐 Recent Message Scans (Preview){%
-                endif %}
+                {% if request.user.is_authenticated %}📋 Your Message Scans{% else %}🌐 Recent Message Scans (Preview){% endif %}
             </h3>
             <div class="table-container">
                 <table class="data-table">
