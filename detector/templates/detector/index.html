@@ -1,5 +1,6 @@
 {% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'detector/css/style.css' %}">
     {% block extra_head %}{% endblock %}
 </head>
+
 <body>
 
     <div class="container">
@@ -15,39 +17,41 @@
             <div class="header-brand-block">
                 <h1><a href="{% url 'home' %}">🛡️ FraudGuard</a></h1>
                 <p class="animated-subtitle">
-                    AI Defense: <span id="typewriterText" class="typewriter-dynamic">Real-Time Threat Detection</span><span class="typewriter-cursor">|</span>
+                    AI Defense: <span id="typewriterText" class="typewriter-dynamic">Real-Time Threat
+                        Detection</span><span class="typewriter-cursor">|</span>
                 </p>
             </div>
             <div class="header-actions-block">
                 {% if request.user.is_authenticated %}
-                    <div class="header-user-row">
-                        <span class="user-profile-badge">
-                            👤 <strong>{{ request.user.get_full_name|default:request.user.username }}</strong>
-                            {% if request.user.profile.role == 'arrestor' or request.user.is_superuser %}
-                                <span style="margin-left: 6px; padding: 2px 7px; background: rgba(56, 189, 248, 0.2); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 4px; font-size: 0.76rem; color: #38bdf8; font-weight: 700;">⚖️ Officer</span>
-                            {% else %}
-                                <span style="margin-left: 6px; padding: 2px 7px; background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 4px; font-size: 0.76rem; color: #34d399; font-weight: 700;">🛡️ Citizen</span>
-                            {% endif %}
-                        </span>
+                <div class="header-user-row">
+                    <span class="user-profile-badge">
+                        👤 <strong>{{ request.user.get_full_name|default:request.user.username }}</strong>
+                        {% if request.user.profile.role == 'arrestor' or request.user.is_superuser %}
+                        <span
+                            style="margin-left: 6px; padding: 2px 7px; background: rgba(56, 189, 248, 0.2); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 4px; font-size: 0.76rem; color: #38bdf8; font-weight: 700;">⚖️
+                            Officer</span>
+                        {% else %}
+                        <span
+                            style="margin-left: 6px; padding: 2px 7px; background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 4px; font-size: 0.76rem; color: #34d399; font-weight: 700;">🛡️
+                            Citizen</span>
+                        {% endif %}
+                    </span>
 
-                        <a href="{% url 'logout' %}" class="btn-sign-out">
-                            Sign Out
-                        </a>
-                    </div>
-                    <div class="smtp-status-badge">
-                        <span>Email Alerts Active ({{ request.user.email }})</span>
-                    </div>
+                    <a href="{% url 'logout' %}" class="btn-sign-out">
+                        Sign Out
+                    </a>
+                </div>
                 {% else %}
-                    {% block header_auth_buttons %}
-                    <div class="header-auth-group">
-                        <a href="{% url 'login' %}" class="btn-secondary header-auth-btn">
-                            Sign In
-                        </a>
-                        <a href="{% url 'register' %}" class="btn-submit header-auth-btn">
-                            Register Free
-                        </a>
-                    </div>
-                    {% endblock header_auth_buttons %}
+                {% block header_auth_buttons %}
+                <div class="header-auth-group">
+                    <a href="{% url 'login' %}" class="btn-secondary header-auth-btn">
+                        Sign In
+                    </a>
+                    <a href="{% url 'register' %}" class="btn-submit header-auth-btn">
+                        Register Free
+                    </a>
+                </div>
+                {% endblock header_auth_buttons %}
                 {% endif %}
         </header>
 
@@ -59,7 +63,8 @@
             <a href="{% url 'arrestor_home' %}" class="portal-nav-link">
                 ⚖️ Fraud Arrestor (Cases)
             </a>
-            <a href="/admin/" target="_blank" class="portal-nav-link admin-link" title="Delete & Manage records in Django Admin">
+            <a href="/admin/" target="_blank" class="portal-nav-link admin-link"
+                title="Delete & Manage records in Django Admin">
                 🔒 Django Admin (Delete & Manage)
             </a>
         </nav>
@@ -72,18 +77,28 @@
             </div>
             <div class="ticker-content-track">
                 <div class="ticker-items">
-                    <span class="ticker-item">🚨 <strong>NEVER SHARE OTP:</strong> Banks or Police never request OTPs or passwords over the phone.</span>
-                    <span class="ticker-item">🛡️ <strong>DIGITAL ARREST SCAM:</strong> Law enforcement never conducts arrests on video calls (Skype/WhatsApp).</span>
-                    <span class="ticker-item">💳 <strong>TRANSACTION SAFETY:</strong> Avoid unauthorized payment gateways & unverified QR codes.</span>
-                    <span class="ticker-item">📧 <strong>PHISHING ALERT:</strong> Verify sender email domain before clicking account reset links.</span>
-                    <span class="ticker-item">📱 <strong>FAKE APK WARNING:</strong> Never install apps sent via SMS or Telegram tasks.</span>
+                    <span class="ticker-item">🚨 <strong>NEVER SHARE OTP:</strong> Banks or Police never request OTPs or
+                        passwords over the phone.</span>
+                    <span class="ticker-item">🛡️ <strong>DIGITAL ARREST SCAM:</strong> Law enforcement never conducts
+                        arrests on video calls (Skype/WhatsApp).</span>
+                    <span class="ticker-item">💳 <strong>TRANSACTION SAFETY:</strong> Avoid unauthorized payment
+                        gateways & unverified QR codes.</span>
+                    <span class="ticker-item">📧 <strong>PHISHING ALERT:</strong> Verify sender email domain before
+                        clicking account reset links.</span>
+                    <span class="ticker-item">📱 <strong>FAKE APK WARNING:</strong> Never install apps sent via SMS or
+                        Telegram tasks.</span>
                 </div>
                 <div class="ticker-items" aria-hidden="true">
-                    <span class="ticker-item">🚨 <strong>NEVER SHARE OTP:</strong> Banks or Police never request OTPs or passwords over the phone.</span>
-                    <span class="ticker-item">🛡️ <strong>DIGITAL ARREST SCAM:</strong> Law enforcement never conducts arrests on video calls (Skype/WhatsApp).</span>
-                    <span class="ticker-item">💳 <strong>TRANSACTION SAFETY:</strong> Avoid unauthorized payment gateways & unverified QR codes.</span>
-                    <span class="ticker-item">📧 <strong>PHISHING ALERT:</strong> Verify sender email domain before clicking account reset links.</span>
-                    <span class="ticker-item">📱 <strong>FAKE APK WARNING:</strong> Never install apps sent via SMS or Telegram tasks.</span>
+                    <span class="ticker-item">🚨 <strong>NEVER SHARE OTP:</strong> Banks or Police never request OTPs or
+                        passwords over the phone.</span>
+                    <span class="ticker-item">🛡️ <strong>DIGITAL ARREST SCAM:</strong> Law enforcement never conducts
+                        arrests on video calls (Skype/WhatsApp).</span>
+                    <span class="ticker-item">💳 <strong>TRANSACTION SAFETY:</strong> Avoid unauthorized payment
+                        gateways & unverified QR codes.</span>
+                    <span class="ticker-item">📧 <strong>PHISHING ALERT:</strong> Verify sender email domain before
+                        clicking account reset links.</span>
+                    <span class="ticker-item">📱 <strong>FAKE APK WARNING:</strong> Never install apps sent via SMS or
+                        Telegram tasks.</span>
                 </div>
             </div>
         </div>
@@ -91,34 +106,38 @@
 
         <!-- Common Flash Alert Messages -->
         {% if messages %}
-            <div class="flash-messages-container">
-                {% for message in messages %}
-                    <div class="flash-message {% if 'error' in message.tags %}flash-error{% elif 'warning' in message.tags %}flash-warning{% else %}flash-success{% endif %}">
-                        <span>{% if 'error' in message.tags %}🚨{% elif 'warning' in message.tags %}⚠️{% else %}✅{% endif %}</span>
-                        <div>{{ message }}</div>
-                    </div>
-                {% endfor %}
+        <div class="flash-messages-container">
+            {% for message in messages %}
+            <div
+                class="flash-message {% if 'error' in message.tags %}flash-error{% elif 'warning' in message.tags %}flash-warning{% else %}flash-success{% endif %}">
+                <span>{% if 'error' in message.tags %}🚨{% elif 'warning' in message.tags %}⚠️{% else %}✅{% endif
+                    %}</span>
+                <div>{{ message }}</div>
             </div>
+            {% endfor %}
+        </div>
         {% endif %}
 
         {% block content %}
         <!-- Guest Prompt Notice -->
         {% if not request.user.is_authenticated %}
-            <div class="guest-banner">
-                <div class="guest-banner-text">
-                    <strong>👋 Welcome Guest!</strong> You can explore the portal. To perform real-time fraud scans and receive instant security alerts in your inbox, please sign in.
-                </div>
-                <div class="guest-banner-action">
-                    <a href="{% url 'login' %}" class="btn-guest-login">
-                        Sign In Now →
-                    </a>
-                </div>
+        <div class="guest-banner">
+            <div class="guest-banner-text">
+                <strong>👋 Welcome Guest!</strong> You can explore the portal. To perform real-time fraud scans and
+                receive instant security alerts in your inbox, please sign in.
             </div>
+            <div class="guest-banner-action">
+                <a href="{% url 'login' %}" class="btn-guest-login">
+                    Sign In Now →
+                </a>
+            </div>
+        </div>
         {% endif %}
 
         <!-- Navigation Tabs -->
         <nav class="tabs-nav" id="fraudTabs">
-            <button class="tab-btn {% if active_tab == 'transaction' or not active_tab %}active{% endif %}" onclick="switchTab('transaction')">
+            <button class="tab-btn {% if active_tab == 'transaction' or not active_tab %}active{% endif %}"
+                onclick="switchTab('transaction')">
                 💳 Transaction Fraud
             </button>
             <button class="tab-btn {% if active_tab == 'email' %}active{% endif %}" onclick="switchTab('email')">
@@ -135,14 +154,16 @@
         <!-- ======================================================== -->
         <!-- TAB 1: TRANSACTION FRAUD -->
         <!-- ======================================================== -->
-        <div id="tab-transaction" class="tab-panel {% if active_tab == 'transaction' or not active_tab %}active{% endif %}">
+        <div id="tab-transaction"
+            class="tab-panel {% if active_tab == 'transaction' or not active_tab %}active{% endif %}">
             <div class="card">
                 <h3 class="card-title">💳 Scan Financial Transaction</h3>
                 <form action="{% url 'form_submit' %}" method="POST" class="fraud-form">
                     {% csrf_token %}
                     <div class="form-group">
                         <label>Customer Email ID:</label>
-                        <input type="email" name="email" required placeholder="customer@example.com" value="{% if request.user.is_authenticated %}{{ request.user.email }}{% endif %}">
+                        <input type="email" name="email" required placeholder="customer@example.com"
+                            value="{% if request.user.is_authenticated %}{{ request.user.email }}{% endif %}">
                     </div>
                     <div class="form-group">
                         <label>Transaction Amount (₹):</label>
@@ -161,7 +182,8 @@
             </div>
 
             <h3 class="section-title">
-                {% if request.user.is_authenticated %}📋 Your Transaction Logs{% else %}🌐 Recent Platform Transactions (Preview){% endif %}
+                {% if request.user.is_authenticated %}📋 Your Transaction Logs{% else %}🌐 Recent Platform Transactions
+                (Preview){% endif %}
             </h3>
             <div class="table-container">
                 <table class="data-table">
@@ -186,25 +208,27 @@
                             </td>
                             <td>
                                 {% if item.is_fraud %}
-                                    <span class="badge badge-fraud">❌ FRAUD</span>
+                                <span class="badge badge-fraud">❌ FRAUD</span>
                                 {% else %}
-                                    <span class="badge badge-safe">✅ SAFE</span>
+                                <span class="badge badge-safe">✅ SAFE</span>
                                 {% endif %}
                             </td>
                             {% if request.user.is_authenticated %}
                             <td>
                                 <div class="action-cell-wrapper">
-                                    <select class="action-risk-select level-{{ item.risk_level|lower }}" 
-                                            data-type="transaction" 
-                                            data-id="{{ item.id }}" 
-                                            onchange="updateActionRiskLevel(this)"
-                                            title="Select Threat Level">
-                                        <option value="HIGH" {% if item.risk_level == 'HIGH' %}selected{% endif %}>🔴 High</option>
-                                        <option value="MEDIUM" {% if item.risk_level == 'MEDIUM' %}selected{% endif %}>🟡 Medium</option>
-                                        <option value="LOW" {% if item.risk_level == 'LOW' %}selected{% endif %}>🟢 Low</option>
+                                    <select class="action-risk-select level-{{ item.risk_level|lower }}"
+                                        data-type="transaction" data-id="{{ item.id }}"
+                                        onchange="updateActionRiskLevel(this)" title="Select Threat Level">
+                                        <option value="HIGH" {% if item.risk_level=='HIGH' %}selected{% endif %}>🔴 High
+                                        </option>
+                                        <option value="MEDIUM" {% if item.risk_level=='MEDIUM' %}selected{% endif %}>🟡
+                                            Medium</option>
+                                        <option value="LOW" {% if item.risk_level=='LOW' %}selected{% endif %}>🟢 Low
+                                        </option>
                                     </select>
                                     {% if request.user.is_superuser %}
-                                    <a href="/admin/detector/transactioncheck/{{ item.id }}/delete/" target="_blank" class="admin-action-del-link" title="Delete via Django Admin">
+                                    <a href="/admin/detector/transactioncheck/{{ item.id }}/delete/" target="_blank"
+                                        class="admin-action-del-link" title="Delete via Django Admin">
                                         🗑️ Admin
                                     </a>
                                     {% endif %}
@@ -214,7 +238,8 @@
                         </tr>
                         {% empty %}
                         <tr>
-                            <td colspan="5" class="empty-cell">No transaction logs recorded. Scan a transaction above!</td>
+                            <td colspan="5" class="empty-cell">No transaction logs recorded. Scan a transaction above!
+                            </td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -236,11 +261,13 @@
                     </div>
                     <div class="form-group">
                         <label>Email Subject:</label>
-                        <input type="text" name="subject" placeholder="Urgent: Your account is suspended, verify KYC now">
+                        <input type="text" name="subject"
+                            placeholder="Urgent: Your account is suspended, verify KYC now">
                     </div>
                     <div class="form-group">
                         <label>Email Content / Body Text:</label>
-                        <textarea name="body_text" required rows="4" placeholder="Paste suspicious email text, links, or instructions here..."></textarea>
+                        <textarea name="body_text" required rows="4"
+                            placeholder="Paste suspicious email text, links, or instructions here..."></textarea>
                     </div>
                     <div>
                         <button type="submit" class="btn-submit">
@@ -251,7 +278,8 @@
             </div>
 
             <h3 class="section-title">
-                {% if request.user.is_authenticated %}📋 Your Email Scans{% else %}🌐 Recent Email Scans (Preview){% endif %}
+                {% if request.user.is_authenticated %}📋 Your Email Scans{% else %}🌐 Recent Email Scans (Preview){%
+                endif %}
             </h3>
             <div class="table-container">
                 <table class="data-table">
@@ -277,9 +305,9 @@
                             </td>
                             <td>
                                 {% if item.is_fraud %}
-                                    <span class="badge badge-fraud">❌ PHISHING</span>
+                                <span class="badge badge-fraud">❌ PHISHING</span>
                                 {% else %}
-                                    <span class="badge badge-safe">✅ LEGITIMATE</span>
+                                <span class="badge badge-safe">✅ LEGITIMATE</span>
                                 {% endif %}
                             </td>
                             <td class="reasons-snippet" title="{{ item.detected_reasons }}">
@@ -288,17 +316,19 @@
                             {% if request.user.is_authenticated %}
                             <td>
                                 <div class="action-cell-wrapper">
-                                    <select class="action-risk-select level-{{ item.risk_level|lower }}" 
-                                            data-type="email" 
-                                            data-id="{{ item.id }}" 
-                                            onchange="updateActionRiskLevel(this)"
-                                            title="Select Threat Level">
-                                        <option value="HIGH" {% if item.risk_level == 'HIGH' %}selected{% endif %}>🔴 High</option>
-                                        <option value="MEDIUM" {% if item.risk_level == 'MEDIUM' %}selected{% endif %}>🟡 Medium</option>
-                                        <option value="LOW" {% if item.risk_level == 'LOW' %}selected{% endif %}>🟢 Low</option>
+                                    <select class="action-risk-select level-{{ item.risk_level|lower }}"
+                                        data-type="email" data-id="{{ item.id }}" onchange="updateActionRiskLevel(this)"
+                                        title="Select Threat Level">
+                                        <option value="HIGH" {% if item.risk_level=='HIGH' %}selected{% endif %}>🔴 High
+                                        </option>
+                                        <option value="MEDIUM" {% if item.risk_level=='MEDIUM' %}selected{% endif %}>🟡
+                                            Medium</option>
+                                        <option value="LOW" {% if item.risk_level=='LOW' %}selected{% endif %}>🟢 Low
+                                        </option>
                                     </select>
                                     {% if request.user.is_superuser %}
-                                    <a href="/admin/detector/emailfraudcheck/{{ item.id }}/delete/" target="_blank" class="admin-action-del-link" title="Delete via Django Admin">
+                                    <a href="/admin/detector/emailfraudcheck/{{ item.id }}/delete/" target="_blank"
+                                        class="admin-action-del-link" title="Delete via Django Admin">
                                         🗑️ Admin
                                     </a>
                                     {% endif %}
@@ -308,7 +338,8 @@
                         </tr>
                         {% empty %}
                         <tr>
-                            <td colspan="6" class="empty-cell">No email analysis logs available. Scan an email above!</td>
+                            <td colspan="6" class="empty-cell">No email analysis logs available. Scan an email above!
+                            </td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -326,11 +357,13 @@
                     {% csrf_token %}
                     <div class="form-group">
                         <label>Incoming Phone Number:</label>
-                        <input type="text" name="phone_number" required placeholder="+234-803-000-0000 or unknown 10/12-digit number">
+                        <input type="text" name="phone_number" required
+                            placeholder="+234-803-000-0000 or unknown 10/12-digit number">
                     </div>
                     <div class="form-group">
                         <label>Call Context / Caller Statement:</label>
-                        <textarea name="call_context" required rows="4" placeholder="Caller claimed to be CBI Officer, told parcel with contraband was seized, demanded money transfer or AnyDesk download..."></textarea>
+                        <textarea name="call_context" required rows="4"
+                            placeholder="Caller claimed to be CBI Officer, told parcel with contraband was seized, demanded money transfer or AnyDesk download..."></textarea>
                     </div>
                     <div>
                         <button type="submit" class="btn-submit">
@@ -341,7 +374,8 @@
             </div>
 
             <h3 class="section-title">
-                {% if request.user.is_authenticated %}📋 Your Call Logs{% else %}🌐 Recent Call Scans (Preview){% endif %}
+                {% if request.user.is_authenticated %}📋 Your Call Logs{% else %}🌐 Recent Call Scans (Preview){% endif
+                %}
             </h3>
             <div class="table-container">
                 <table class="data-table">
@@ -365,9 +399,9 @@
                             </td>
                             <td>
                                 {% if item.is_fraud %}
-                                    <span class="badge badge-fraud">❌ FRAUD CALL</span>
+                                <span class="badge badge-fraud">❌ FRAUD CALL</span>
                                 {% else %}
-                                    <span class="badge badge-safe">✅ SAFE CALL</span>
+                                <span class="badge badge-safe">✅ SAFE CALL</span>
                                 {% endif %}
                             </td>
                             <td class="reasons-snippet" title="{{ item.detected_reasons }}">
@@ -376,17 +410,19 @@
                             {% if request.user.is_authenticated %}
                             <td>
                                 <div class="action-cell-wrapper">
-                                    <select class="action-risk-select level-{{ item.risk_level|lower }}" 
-                                            data-type="call" 
-                                            data-id="{{ item.id }}" 
-                                            onchange="updateActionRiskLevel(this)"
-                                            title="Select Threat Level">
-                                        <option value="HIGH" {% if item.risk_level == 'HIGH' %}selected{% endif %}>🔴 High</option>
-                                        <option value="MEDIUM" {% if item.risk_level == 'MEDIUM' %}selected{% endif %}>🟡 Medium</option>
-                                        <option value="LOW" {% if item.risk_level == 'LOW' %}selected{% endif %}>🟢 Low</option>
+                                    <select class="action-risk-select level-{{ item.risk_level|lower }}"
+                                        data-type="call" data-id="{{ item.id }}" onchange="updateActionRiskLevel(this)"
+                                        title="Select Threat Level">
+                                        <option value="HIGH" {% if item.risk_level=='HIGH' %}selected{% endif %}>🔴 High
+                                        </option>
+                                        <option value="MEDIUM" {% if item.risk_level=='MEDIUM' %}selected{% endif %}>🟡
+                                            Medium</option>
+                                        <option value="LOW" {% if item.risk_level=='LOW' %}selected{% endif %}>🟢 Low
+                                        </option>
                                     </select>
                                     {% if request.user.is_superuser %}
-                                    <a href="/admin/detector/callfraudcheck/{{ item.id }}/delete/" target="_blank" class="admin-action-del-link" title="Delete via Django Admin">
+                                    <a href="/admin/detector/callfraudcheck/{{ item.id }}/delete/" target="_blank"
+                                        class="admin-action-del-link" title="Delete via Django Admin">
                                         🗑️ Admin
                                     </a>
                                     {% endif %}
@@ -414,11 +450,13 @@
                     {% csrf_token %}
                     <div class="form-group">
                         <label>Sender Header / Number:</label>
-                        <input type="text" name="sender_info" required placeholder="e.g. AX-SBIBNK, VM-ELECTR, or +1-809-xxx">
+                        <input type="text" name="sender_info" required
+                            placeholder="e.g. AX-SBIBNK, VM-ELECTR, or +1-809-xxx">
                     </div>
                     <div class="form-group">
                         <label>Message Text:</label>
-                        <textarea name="message_text" required rows="4" placeholder="Dear user, your electricity will be disconnected tonight. Update bill immediately at bit.ly/power-pay or share OTP..."></textarea>
+                        <textarea name="message_text" required rows="4"
+                            placeholder="Dear user, your electricity will be disconnected tonight. Update bill immediately at bit.ly/power-pay or share OTP..."></textarea>
                     </div>
                     <div>
                         <button type="submit" class="btn-submit">
@@ -429,7 +467,8 @@
             </div>
 
             <h3 class="section-title">
-                {% if request.user.is_authenticated %}📋 Your Message Scans{% else %}🌐 Recent Message Scans (Preview){% endif %}
+                {% if request.user.is_authenticated %}📋 Your Message Scans{% else %}🌐 Recent Message Scans (Preview){%
+                endif %}
             </h3>
             <div class="table-container">
                 <table class="data-table">
@@ -453,9 +492,9 @@
                             </td>
                             <td>
                                 {% if item.is_fraud %}
-                                    <span class="badge badge-fraud">❌ SPAM / FRAUD</span>
+                                <span class="badge badge-fraud">❌ SPAM / FRAUD</span>
                                 {% else %}
-                                    <span class="badge badge-safe">✅ LEGITIMATE</span>
+                                <span class="badge badge-safe">✅ LEGITIMATE</span>
                                 {% endif %}
                             </td>
                             <td class="reasons-snippet" title="{{ item.detected_reasons }}">
@@ -464,17 +503,19 @@
                             {% if request.user.is_authenticated %}
                             <td>
                                 <div class="action-cell-wrapper">
-                                    <select class="action-risk-select level-{{ item.risk_level|lower }}" 
-                                            data-type="message" 
-                                            data-id="{{ item.id }}" 
-                                            onchange="updateActionRiskLevel(this)"
-                                            title="Select Threat Level">
-                                        <option value="HIGH" {% if item.risk_level == 'HIGH' %}selected{% endif %}>🔴 High</option>
-                                        <option value="MEDIUM" {% if item.risk_level == 'MEDIUM' %}selected{% endif %}>🟡 Medium</option>
-                                        <option value="LOW" {% if item.risk_level == 'LOW' %}selected{% endif %}>🟢 Low</option>
+                                    <select class="action-risk-select level-{{ item.risk_level|lower }}"
+                                        data-type="message" data-id="{{ item.id }}"
+                                        onchange="updateActionRiskLevel(this)" title="Select Threat Level">
+                                        <option value="HIGH" {% if item.risk_level=='HIGH' %}selected{% endif %}>🔴 High
+                                        </option>
+                                        <option value="MEDIUM" {% if item.risk_level=='MEDIUM' %}selected{% endif %}>🟡
+                                            Medium</option>
+                                        <option value="LOW" {% if item.risk_level=='LOW' %}selected{% endif %}>🟢 Low
+                                        </option>
                                     </select>
                                     {% if request.user.is_superuser %}
-                                    <a href="/admin/detector/messagefraudcheck/{{ item.id }}/delete/" target="_blank" class="admin-action-del-link" title="Delete via Django Admin">
+                                    <a href="/admin/detector/messagefraudcheck/{{ item.id }}/delete/" target="_blank"
+                                        class="admin-action-del-link" title="Delete via Django Admin">
                                         🗑️ Admin
                                     </a>
                                     {% endif %}
@@ -518,13 +559,12 @@
         }
 
         // Typewriter Animation for Dynamic Subtitle
-        (function() {
+        (function () {
             const phrases = [
                 "Scanning High-Risk Bank Transactions...",
                 "Detecting Phishing Emails & Fake Domains...",
                 "Shielding Against Extortion & Digital Arrest Calls...",
-                "Intercepting Scam APKs & Fake KYC SMS...",
-                "Real-Time Gmail Alerts via SMTP..."
+                "Intercepting Scam APKs & Fake KYC SMS..."
             ];
             let phraseIndex = 0;
             let charIndex = 0;
@@ -601,45 +641,46 @@
                 },
                 body: `risk_level=${encodeURIComponent(selectedLevel)}`
             })
-            .then(res => res.json())
-            .then(data => {
-                selectEl.style.opacity = '1';
-                if (data.success) {
-                    selectEl.className = `action-risk-select level-${data.risk_level.toLowerCase()}`;
-                    const row = selectEl.closest('tr');
-                    if (row) {
-                        const scoreBadge = row.querySelector('.risk-score');
-                        if (scoreBadge) {
-                            scoreBadge.textContent = `${data.risk_score}%`;
-                            if (data.risk_score >= 50) {
-                                scoreBadge.className = 'risk-score high';
-                            } else {
-                                scoreBadge.className = 'risk-score low';
+                .then(res => res.json())
+                .then(data => {
+                    selectEl.style.opacity = '1';
+                    if (data.success) {
+                        selectEl.className = `action-risk-select level-${data.risk_level.toLowerCase()}`;
+                        const row = selectEl.closest('tr');
+                        if (row) {
+                            const scoreBadge = row.querySelector('.risk-score');
+                            if (scoreBadge) {
+                                scoreBadge.textContent = `${data.risk_score}%`;
+                                if (data.risk_score >= 50) {
+                                    scoreBadge.className = 'risk-score high';
+                                } else {
+                                    scoreBadge.className = 'risk-score low';
+                                }
+                            }
+                            const statusBadge = row.querySelector('.badge');
+                            if (statusBadge) {
+                                if (data.is_fraud) {
+                                    statusBadge.className = 'badge badge-fraud';
+                                    statusBadge.textContent = logType === 'email' ? '❌ PHISHING' : (logType === 'call' ? '❌ FRAUD CALL' : (logType === 'message' ? '❌ SPAM / FRAUD' : '❌ FRAUD'));
+                                } else {
+                                    statusBadge.className = 'badge badge-safe';
+                                    statusBadge.textContent = logType === 'email' ? '✅ LEGITIMATE' : (logType === 'call' ? '✅ SAFE CALL' : (logType === 'message' ? '✅ LEGITIMATE' : '✅ SAFE'));
+                                }
                             }
                         }
-                        const statusBadge = row.querySelector('.badge');
-                        if (statusBadge) {
-                            if (data.is_fraud) {
-                                statusBadge.className = 'badge badge-fraud';
-                                statusBadge.textContent = logType === 'email' ? '❌ PHISHING' : (logType === 'call' ? '❌ FRAUD CALL' : (logType === 'message' ? '❌ SPAM / FRAUD' : '❌ FRAUD'));
-                            } else {
-                                statusBadge.className = 'badge badge-safe';
-                                statusBadge.textContent = logType === 'email' ? '✅ LEGITIMATE' : (logType === 'call' ? '✅ SAFE CALL' : (logType === 'message' ? '✅ LEGITIMATE' : '✅ SAFE'));
-                            }
-                        }
+                        showToast(`✅ Threat Level updated to ${data.risk_level}!`);
+                    } else {
+                        alert('Error: ' + (data.error || 'Failed to update'));
                     }
-                    showToast(`✅ Threat Level updated to ${data.risk_level}!`);
-                } else {
-                    alert('Error: ' + (data.error || 'Failed to update'));
-                }
-            })
-            .catch(err => {
-                selectEl.style.opacity = '1';
-                console.error(err);
-                window.location.href = `/update-risk-level/${logType}/${itemId}/?level=${selectedLevel}`;
-            });
+                })
+                .catch(err => {
+                    selectEl.style.opacity = '1';
+                    console.error(err);
+                    window.location.href = `/update-risk-level/${logType}/${itemId}/?level=${selectedLevel}`;
+                });
         }
     </script>
     {% endblock %}
 </body>
+
 </html>

@@ -1,13 +1,16 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fraud Arrestor - Cyber Crime Investigation & Resolution Desk</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="{% static 'arrestor/css/style.css' %}">
 </head>
 
@@ -24,23 +27,28 @@
             </div>
             <div class="header-actions-block">
                 {% if request.user.is_authenticated %}
-                    <div class="header-user-row">
-                        <span class="user-profile-badge">
-                            👤 <strong>{{ request.user.get_full_name|default:request.user.username }}</strong>
-                            {% if request.user.profile.role == 'arrestor' or request.user.is_superuser %}
-                                <span style="margin-left: 6px; padding: 2px 7px; background: rgba(56, 189, 248, 0.2); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 4px; font-size: 0.76rem; color: #38bdf8; font-weight: 700;">⚖️ Officer</span>
-                            {% else %}
-                                <span style="margin-left: 6px; padding: 2px 7px; background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 4px; font-size: 0.76rem; color: #34d399; font-weight: 700;">🛡️ Citizen</span>
-                            {% endif %}
-                        </span>
+                <div class="header-user-row">
+                    <span class="user-profile-badge">
+                        👤 <strong>{{ request.user.get_full_name|default:request.user.username }}</strong>
+                        {% if request.user.profile.role == 'arrestor' or request.user.is_superuser %}
+                        <span
+                            style="margin-left: 6px; padding: 2px 7px; background: rgba(56, 189, 248, 0.2); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 4px; font-size: 0.76rem; color: #38bdf8; font-weight: 700;">⚖️
+                            Officer</span>
+                        {% else %}
+                        <span
+                            style="margin-left: 6px; padding: 2px 7px; background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 4px; font-size: 0.76rem; color: #34d399; font-weight: 700;">🛡️
+                            Citizen</span>
+                        {% endif %}
+                    </span>
 
-                        <a href="{% url 'logout' %}" class="btn-sign-out">Sign Out</a>
-                    </div>
+                    <a href="{% url 'logout' %}" class="btn-sign-out">Sign Out</a>
+                </div>
                 {% else %}
-                    <div class="header-auth-group">
-                        <a href="{% url 'login' %}?next={% url 'arrestor_home' %}" class="btn-secondary header-auth-btn">Sign In</a>
-                        <a href="{% url 'register' %}" class="btn-submit header-auth-btn">Register Free</a>
-                    </div>
+                <div class="header-auth-group">
+                    <a href="{% url 'login' %}?next={% url 'arrestor_home' %}"
+                        class="btn-secondary header-auth-btn">Sign In</a>
+                    <a href="{% url 'register' %}" class="btn-submit header-auth-btn">Register Free</a>
+                </div>
                 {% endif %}
             </div>
         </header>
@@ -53,25 +61,23 @@
             <a href="{% url 'arrestor_home' %}" class="portal-nav-link active">
                 ⚖️ Fraud Arrestor (Cases)
             </a>
-            <a href="/admin/" target="_blank" class="portal-nav-link admin-link" title="Open Django Admin">
-                🔒 Django Admin (Delete & Manage)
-            </a>
         </nav>
 
         <!-- Flash Messages -->
         {% if messages %}
         <div class="flash-messages-block">
             {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">
-                    {{ message }}
-                </div>
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
             {% endfor %}
         </div>
         {% endif %}
 
         <!-- Hero & Metrics -->
         <div class="arrestor-hero">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+            <div
+                style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
                 <div>
                     <h2 style="font-size: 1.6rem; color: #f8fafc; margin-bottom: 6px;">
                         ⚖️ Fraud Arrestor & Law Enforcement Cell
@@ -113,34 +119,41 @@
                 Enter your Case ID (e.g. <code>ARR-202610-8821</code>) to verify real-time arrest and recovery status.
             </p>
             <form action="{% url 'arrestor_home' %}" method="GET" class="tracker-form">
-                <input type="text" name="track_id" value="{{ track_id }}" placeholder="Enter Case ID e.g. ARR-202610-8821" required class="tracker-input">
+                <input type="text" name="track_id" value="{{ track_id }}"
+                    placeholder="Enter Case ID e.g. ARR-202610-8821" required class="tracker-input">
                 <button type="submit" class="btn-submit" style="padding: 10px 20px;">
                     Track Status
                 </button>
             </form>
 
             {% if tracked_case %}
-            <div class="tracker-card {% if tracked_case.is_solved or tracked_case.status == 'COMPLETED' %}solved{% endif %}">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
+            <div
+                class="tracker-card {% if tracked_case.is_solved or tracked_case.status == 'COMPLETED' %}solved{% endif %}">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
                     <div>
                         <span style="font-size: 0.82rem; color: #94a3b8;">Case Tracking Reference</span>
                         <h4 style="font-size: 1.3rem; color: #f8fafc; margin: 4px 0;">{{ tracked_case.case_id }}</h4>
-                        <span style="color: #cbd5e1; font-size: 0.95rem;">Victim: <strong>{{ tracked_case.victim_name }}</strong> ({{ tracked_case.get_fraud_category_display }})</span>
+                        <span style="color: #cbd5e1; font-size: 0.95rem;">Victim: <strong>{{ tracked_case.victim_name
+                                }}</strong> ({{ tracked_case.get_fraud_category_display }})</span>
                     </div>
                     <div>
                         {% if tracked_case.is_solved or tracked_case.status == 'COMPLETED' %}
-                            <span class="badge-solved-giant">✅ COMPLETED (SOLVED)</span>
+                        <span class="badge-solved-giant">✅ COMPLETED (SOLVED)</span>
                         {% elif tracked_case.status == 'INVESTIGATING' %}
-                            <span class="badge-investigating">🔍 UNDER INVESTIGATION</span>
+                        <span class="badge-investigating">🔍 UNDER INVESTIGATION</span>
                         {% elif tracked_case.status == 'ARREST_ISSUED' %}
-                            <span class="badge-investigating" style="background: #831843; border-color: #ec4899; color: #fbcfe8;">🚨 ARREST INITIATED</span>
+                        <span class="badge-investigating"
+                            style="background: #831843; border-color: #ec4899; color: #fbcfe8;">🚨 ARREST
+                            INITIATED</span>
                         {% else %}
-                            <span class="badge-pending">⏳ PENDING REVIEW</span>
+                        <span class="badge-pending">⏳ PENDING REVIEW</span>
                         {% endif %}
                     </div>
                 </div>
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 12px;">
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 12px;">
                     <div>
                         <span style="font-size: 0.8rem; color: #94a3b8;">Reported Loss:</span>
                         <strong style="display:block; color: #f87171;">₹{{ tracked_case.loss_amount }}</strong>
@@ -155,13 +168,15 @@
                     </div>
                     <div>
                         <span style="font-size: 0.8rem; color: #94a3b8;">Suspect Details:</span>
-                        <strong style="display:block; color: #cbd5e1;">{{ tracked_case.suspect_identity|default:"Under identification" }}</strong>
+                        <strong style="display:block; color: #cbd5e1;">{{ tracked_case.suspect_identity|default:"Under
+                            identification" }}</strong>
                     </div>
                 </div>
 
                 {% if tracked_case.resolution_summary %}
                 <div style="margin-top: 14px; background: rgba(0,0,0,0.25); border-radius: 8px; padding: 12px;">
-                    <span style="font-size: 0.82rem; color: #34d399; font-weight: 700;">Resolution & Arrest Outcome:</span>
+                    <span style="font-size: 0.82rem; color: #34d399; font-weight: 700;">Resolution & Arrest
+                        Outcome:</span>
                     <p style="margin: 4px 0 0 0; color: #e2e8f0; font-size: 0.92rem;">
                         {{ tracked_case.resolution_summary }}
                     </p>
@@ -169,7 +184,8 @@
                 {% endif %}
             </div>
             {% elif track_id %}
-            <div style="margin-top: 15px; padding: 12px; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; color: #fca5a5;">
+            <div
+                style="margin-top: 15px; padding: 12px; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; color: #fca5a5;">
                 ❌ No case record found for ID: <strong>{{ track_id }}</strong>. Please check your tracking number.
             </div>
             {% endif %}
@@ -178,10 +194,11 @@
         {% if not request.user.is_authenticated %}
         <div class="guest-cta">
             <div>
-                <strong>Guest Access:</strong> You are browsing public case resolutions. 
+                <strong>Guest Access:</strong> You are browsing public case resolutions.
                 Sign in to manage your private incident reports and track assigned investigators.
             </div>
-            <a href="{% url 'login' %}?next={% url 'arrestor_home' %}" class="btn-secondary" style="padding: 6px 14px; font-size: 0.85rem;">
+            <a href="{% url 'login' %}?next={% url 'arrestor_home' %}" class="btn-secondary"
+                style="padding: 6px 14px; font-size: 0.85rem;">
                 Sign In to Your Account
             </a>
         </div>
@@ -189,7 +206,8 @@
 
         <!-- 2. Registered Cases Table -->
         <h3 class="section-title">
-            {% if request.user.is_authenticated %}📋 Your Registered Fraud Cases{% else %}🌐 Recent Platform Cases (Public Preview){% endif %}
+            {% if request.user.is_authenticated %}📋 Your Registered Fraud Cases{% else %}🌐 Recent Platform Cases
+            (Public Preview){% endif %}
         </h3>
         <div class="table-container">
             <table class="data-table">
@@ -201,7 +219,7 @@
                         <th>Loss Amount</th>
                         <th>Status</th>
                         {% if request.user.is_authenticated %}
-                            <th>Action (Priority Level)</th>
+                        <th>Action (Priority Level)</th>
                         {% endif %}
                     </tr>
                 </thead>
@@ -209,7 +227,8 @@
                     {% for case in user_cases %}
                     <tr>
                         <td class="highlight-col">
-                            <a href="?track_id={{ case.case_id }}" style="color: #38bdf8; font-weight: 700; text-decoration: none;">
+                            <a href="?track_id={{ case.case_id }}"
+                                style="color: #38bdf8; font-weight: 700; text-decoration: none;">
                                 📁 {{ case.case_id }}
                             </a>
                         </td>
@@ -218,28 +237,32 @@
                         <td style="color: #f87171; font-weight: 600;">₹{{ case.loss_amount }}</td>
                         <td>
                             {% if case.is_solved or case.status == 'COMPLETED' %}
-                                <span class="badge-completed">✅ COMPLETED</span>
+                            <span class="badge-completed">✅ COMPLETED</span>
                             {% elif case.status == 'INVESTIGATING' %}
-                                <span class="badge-investigating">🔍 INVESTIGATING</span>
+                            <span class="badge-investigating">🔍 INVESTIGATING</span>
                             {% elif case.status == 'ARREST_ISSUED' %}
-                                <span class="badge-investigating" style="background: #831843; border-color: #ec4899; color: #fbcfe8;">🚨 ARREST ALERT</span>
+                            <span class="badge-investigating"
+                                style="background: #831843; border-color: #ec4899; color: #fbcfe8;">🚨 ARREST
+                                ALERT</span>
                             {% else %}
-                                <span class="badge-pending">⏳ PENDING</span>
+                            <span class="badge-pending">⏳ PENDING</span>
                             {% endif %}
                         </td>
                         {% if request.user.is_authenticated %}
                         <td>
                             <div class="action-cell-wrapper">
-                                <select class="action-risk-select level-{{ case.priority|lower }}" 
-                                        data-case-id="{{ case.id }}"
-                                        onchange="changeCasePriority(this)" 
-                                        title="Select Case Priority">
-                                    <option value="HIGH" {% if case.priority == 'HIGH' %}selected{% endif %}>🔴 High</option>
-                                    <option value="MEDIUM" {% if case.priority == 'MEDIUM' %}selected{% endif %}>🟡 Medium</option>
-                                    <option value="LOW" {% if case.priority == 'LOW' %}selected{% endif %}>🟢 Low</option>
+                                <select class="action-risk-select level-{{ case.priority|lower }}"
+                                    data-case-id="{{ case.id }}" onchange="changeCasePriority(this)"
+                                    title="Select Case Priority">
+                                    <option value="HIGH" {% if case.priority=='HIGH' %}selected{% endif %}>🔴 High
+                                    </option>
+                                    <option value="MEDIUM" {% if case.priority=='MEDIUM' %}selected{% endif %}>🟡 Medium
+                                    </option>
+                                    <option value="LOW" {% if case.priority=='LOW' %}selected{% endif %}>🟢 Low</option>
                                 </select>
                                 {% if request.user.is_superuser %}
-                                <a href="/admin/arrestor/fraudcase/{{ case.id }}/delete/" target="_blank" class="admin-action-del-link" title="Delete via Django Admin">
+                                <a href="/admin/arrestor/fraudcase/{{ case.id }}/delete/" target="_blank"
+                                    class="admin-action-del-link" title="Delete via Django Admin">
                                     🗑️ Admin
                                 </a>
                                 {% endif %}
@@ -260,7 +283,8 @@
 
         <!-- 3. Solved & Completed Cases Showcase (With & Without Login) -->
         <div style="margin-top: 35px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
+            <div
+                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
                 <h3 class="section-title" style="margin: 0;">
                     🏆 Solved & Completed Fraud Cases (Public Bulletin)
                 </h3>
@@ -269,14 +293,16 @@
                 </span>
             </div>
             <p style="color: #94a3b8; font-size: 0.9rem; margin-top: 4px;">
-                Verified cyber fraud cases successfully solved, suspects arrested, and frozen assets restored to victims.
+                Verified cyber fraud cases successfully solved, suspects arrested, and frozen assets restored to
+                victims.
             </p>
 
             <div class="case-card-grid">
                 {% for case in solved_cases %}
                 <div class="case-bulletin-card completed">
                     <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                             <span style="font-size: 0.8rem; color: #94a3b8;">{{ case.case_id }}</span>
                             <span class="badge-completed">✅ COMPLETED</span>
                         </div>
@@ -289,12 +315,14 @@
                     </div>
 
                     <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 10px; margin-top: 8px;">
-                        <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 4px;">
+                        <div
+                            style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 4px;">
                             <span style="color: #94a3b8;">Recovered Funds:</span>
                             <strong style="color: #34d399;">₹{{ case.recovered_amount }}</strong>
                         </div>
                         {% if case.arrest_location %}
-                        <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 4px;">
+                        <div
+                            style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 4px;">
                             <span style="color: #94a3b8;">Arrest Location:</span>
                             <span style="color: #f1f5f9;">{{ case.arrest_location }}</span>
                         </div>
@@ -316,18 +344,23 @@
         <div id="report-section" class="card" style="margin-top: 40px;">
             <h3 class="card-title">✍️ Report a Fraud Incident (Initiate Arrest Investigation)</h3>
             <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 20px;">
-                Provide scam details. Law enforcement and digital forensics will assign an investigation team immediately.
+                Provide scam details. Law enforcement and digital forensics will assign an investigation team
+                immediately.
             </p>
             <form action="{% url 'submit_case' %}" method="POST" class="fraud-form">
                 {% csrf_token %}
                 <div class="form-row">
                     <div class="form-group">
                         <label>Complainant / Victim Name:</label>
-                        <input type="text" name="victim_name" required value="{% if request.user.is_authenticated %}{{ request.user.get_full_name|default:request.user.username }}{% endif %}" placeholder="Full Name">
+                        <input type="text" name="victim_name" required
+                            value="{% if request.user.is_authenticated %}{{ request.user.get_full_name|default:request.user.username }}{% endif %}"
+                            placeholder="Full Name">
                     </div>
                     <div class="form-group">
                         <label>Victim Email Address:</label>
-                        <input type="email" name="victim_email" required value="{% if request.user.is_authenticated %}{{ request.user.email }}{% endif %}" placeholder="victim@example.com">
+                        <input type="email" name="victim_email" required
+                            value="{% if request.user.is_authenticated %}{{ request.user.email }}{% endif %}"
+                            placeholder="victim@example.com">
                     </div>
                 </div>
 
@@ -338,7 +371,8 @@
                     </div>
                     <div class="form-group">
                         <label>Scam Category:</label>
-                        <select name="fraud_category" style="width: 100%; padding: 10px; background: #1e293b; border: 1px solid #334155; color: #f8fafc; border-radius: 8px;">
+                        <select name="fraud_category"
+                            style="width: 100%; padding: 10px; background: #1e293b; border: 1px solid #334155; color: #f8fafc; border-radius: 8px;">
                             <option value="FINANCIAL">Financial Fraud / UPI Scam</option>
                             <option value="DIGITAL_ARREST">Digital Arrest & Law Impersonation</option>
                             <option value="EMAIL_PHISHING">Email Phishing & Banking Lure</option>
@@ -352,7 +386,8 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>Suspect Details (Phone / UPI / Account / Link):</label>
-                        <input type="text" name="suspect_identity" placeholder="e.g. +91-7001-xxx, or badactor@upi, or https://bad.site">
+                        <input type="text" name="suspect_identity"
+                            placeholder="e.g. +91-7001-xxx, or badactor@upi, or https://bad.site">
                     </div>
                     <div class="form-group">
                         <label>Amount Lost (₹):</label>
@@ -360,7 +395,8 @@
                     </div>
                     <div class="form-group">
                         <label>Priority / Threat Level:</label>
-                        <select name="priority" style="width: 100%; padding: 10px; background: #1e293b; border: 1px solid #334155; color: #f8fafc; border-radius: 8px;">
+                        <select name="priority"
+                            style="width: 100%; padding: 10px; background: #1e293b; border: 1px solid #334155; color: #f8fafc; border-radius: 8px;">
                             <option value="HIGH">🔴 High</option>
                             <option value="MEDIUM">🟡 Medium</option>
                             <option value="LOW">🟢 Low</option>
@@ -370,12 +406,14 @@
 
                 <div class="form-group">
                     <label>Incident Description:</label>
-                    <textarea name="description" rows="3" required placeholder="Describe what happened, how the scammer contacted you, and what steps took place..."></textarea>
+                    <textarea name="description" rows="3" required
+                        placeholder="Describe what happened, how the scammer contacted you, and what steps took place..."></textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Evidence & Technical Indicators (Optional):</label>
-                    <textarea name="evidence_notes" rows="2" placeholder="Paste transaction UTR numbers, malicious URLs, caller timestamps, or app download names..."></textarea>
+                    <textarea name="evidence_notes" rows="2"
+                        placeholder="Paste transaction UTR numbers, malicious URLs, caller timestamps, or app download names..."></textarea>
                 </div>
 
                 <div style="margin-top: 15px;">
@@ -428,22 +466,23 @@
                 },
                 body: `priority=${encodeURIComponent(newPriority)}`
             })
-            .then(res => res.json())
-            .then(data => {
-                selectEl.style.opacity = '1';
-                if (data.success) {
-                    selectEl.className = `action-risk-select level-${data.new_priority.toLowerCase()}`;
-                    showToast(`✅ Priority updated to ${data.new_priority}!`);
-                } else {
-                    alert('Error updating priority: ' + (data.error || 'Unknown'));
-                }
-            })
-            .catch(err => {
-                selectEl.style.opacity = '1';
-                console.error(err);
-                window.location.href = `/arrestor/update-priority/${caseId}/?priority=${newPriority}`;
-            });
+                .then(res => res.json())
+                .then(data => {
+                    selectEl.style.opacity = '1';
+                    if (data.success) {
+                        selectEl.className = `action-risk-select level-${data.new_priority.toLowerCase()}`;
+                        showToast(`✅ Priority updated to ${data.new_priority}!`);
+                    } else {
+                        alert('Error updating priority: ' + (data.error || 'Unknown'));
+                    }
+                })
+                .catch(err => {
+                    selectEl.style.opacity = '1';
+                    console.error(err);
+                    window.location.href = `/arrestor/update-priority/${caseId}/?priority=${newPriority}`;
+                });
         }
     </script>
 </body>
+
 </html>
