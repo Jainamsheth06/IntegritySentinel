@@ -1,0 +1,34 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block email_title %}FraudGuard Security Notification{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'account/css/email.css' %}">
+</head>
+<body class="email-body">
+    <div class="email-wrapper">
+        <div class="email-card">
+            <div class="{% block header_class %}email-header{% endblock %}">
+                {% block email_header %}
+                <span class="email-badge">🛡️ FraudGuard Security</span>
+                <h1 class="email-header-title">Security Notification</h1>
+                <p class="email-header-sub">AI-Powered Threat Protection Suite</p>
+                {% endblock %}
+            </div>
+
+            <div class="email-content">
+                {% block email_content %}{% endblock %}
+            </div>
+
+            <div class="email-footer">
+                {% block email_footer %}
+                <p class="email-footer-brand">FraudGuard Cyber Threat Defense System</p>
+                <p class="email-footer-project">Secured by Jainam Sheth</p>
+                <p class="email-footer-notice">Automated Security Dispatch. Please do not reply directly.</p>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

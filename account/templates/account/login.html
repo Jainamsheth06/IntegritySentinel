@@ -1,0 +1,46 @@
+{% extends 'account/base.html' %}
+
+{% block title %}Sign In - FraudGuard Unified Gateway{% endblock %}
+
+{% block content %}
+<div class="account-header">
+    <h2>🔐 Account Sign In</h2>
+    <p>Unified access for Threat Detectors and Case Arrestors</p>
+</div>
+
+<form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next|default:'' }}">
+
+    <div class="account-form-group">
+        <label for="username">Username or Email Address</label>
+        <input type="text" id="username" name="username" class="account-input" required 
+               placeholder="Enter username or email" autocomplete="username" autofocus>
+    </div>
+
+    <div class="account-form-group">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px;">
+            <label for="password" style="margin-bottom: 0;">Password</label>
+            <a href="{% url 'forgot_password' %}" style="color: #60a5fa; font-size: 0.82rem; text-decoration: none;">
+                Forgot password?
+            </a>
+        </div>
+        <input type="password" id="password" name="password" class="account-input" required 
+               placeholder="••••••••" autocomplete="current-password">
+    </div>
+
+    <button type="submit" class="account-btn-submit">
+        ⚡ Authenticate & Enter Portal
+    </button>
+</form>
+
+<div class="account-role-card">
+    🛡️ <strong>Auto-Routing Enabled:</strong> Detectors are directed to the Cyber Scan Console and Arrestor Officers to the Case Investigation Desk.
+</div>
+
+<div class="account-footer-links">
+    Don't have an account? <a href="{% url 'register' %}">Create Account</a>
+    <br><br>
+    <a href="{% url 'home' %}">← Return to Public Dashboard</a>
+</div>
+{% endblock %}

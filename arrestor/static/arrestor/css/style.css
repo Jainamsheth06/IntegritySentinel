@@ -1,0 +1,832 @@
+/* ==========================================================================
+   FraudGuard Arrestor - Clean Light & User-Friendly Indian Flag Theme
+   Theme: Vibrant & Clean Tiranga (Saffron, White, Ashoka Chakra Navy, India Green)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap');
+
+:root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-display: 'Outfit', sans-serif;
+
+    /* Clean Bright Surface Palettes */
+    --bg-page: #f8fafc;
+    --card-bg: #ffffff;
+    --card-border: #e2e8f0;
+    --card-border-hover: #cbd5e1;
+
+    /* Indian Flag (Tiranga) Official Accents */
+    --saffron-main: #ea580c;
+    --saffron-bright: #ff671f;
+    --saffron-light: #fff7ed;
+    --saffron-border: #fed7aa;
+
+    --chakra-navy: #000080;
+    --chakra-blue: #1d4ed8;
+    --chakra-light: #eff6ff;
+    --chakra-border: #bfdbfe;
+
+    --india-green: #138808;
+    --green-bright: #16a34a;
+    --green-light: #f0fdf4;
+    --green-border: #86efac;
+
+    /* Text Colors (High Contrast & Super User-Friendly) */
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+    --text-light: #94a3b8;
+
+    /* Inputs & Forms */
+    --input-bg: #ffffff;
+    --input-border: #cbd5e1;
+    --input-focus-border: #ff671f;
+    --input-focus-glow: rgba(255, 103, 31, 0.15);
+
+    /* Gradients */
+    --tiranga-ribbon: linear-gradient(90deg, #FF671F 0%, #FF9933 33%, #FFFFFF 48%, #000080 50%, #FFFFFF 52%, #10B981 66%, #138808 100%);
+    --brand-gradient: linear-gradient(135deg, #ea580c 0%, #000080 50%, #138808 100%);
+    --btn-saffron: linear-gradient(135deg, #ff671f 0%, #ea580c 100%);
+    --btn-green: linear-gradient(135deg, #16a34a 0%, #138808 100%);
+
+    /* Elevation */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 16px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+    --shadow-lg: 0 10px 25px -3px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-full: 9999px;
+}
+
+/* Reset & Global */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-page);
+    background-image: 
+        radial-gradient(circle at 50% 0%, rgba(255, 103, 31, 0.06) 0%, rgba(248, 250, 252, 0.96) 45%, rgba(19, 136, 8, 0.06) 100%),
+        url('/media/bg.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 24px 16px 40px 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Top Indian Flag (Tiranga) Ribbon Bar */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: var(--tiranga-ribbon);
+    z-index: 9999;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   Dashboard Header & Brand Bar
+   -------------------------------------------------------------------------- */
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 26px;
+    background: #ffffff;
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.header-brand-block h1 {
+    font-family: var(--font-display);
+    font-size: 1.85rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.header-brand-block h1 a {
+    text-decoration: none;
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.animated-subtitle {
+    margin-top: 4px;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.typewriter-dynamic {
+    color: var(--saffron-main);
+    font-weight: 700;
+}
+
+.header-actions-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-user-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-profile-badge {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.88rem;
+    color: var(--text-primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.btn-sign-out {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-sign-out:hover {
+    background: #fee2e2;
+    color: #b91c1c;
+    border-color: #f87171;
+    transform: translateY(-1px);
+}
+
+.header-auth-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-auth-btn {
+    padding: 8px 18px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.btn-secondary {
+    background: #ffffff;
+    color: var(--text-secondary);
+    border: 1px solid #cbd5e1;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+    background: #f8fafc;
+    border-color: var(--saffron-bright);
+    color: var(--saffron-main);
+    transform: translateY(-1px);
+}
+
+.btn-submit {
+    background: var(--btn-saffron);
+    color: #ffffff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 0.92rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(234, 88, 12, 0.25);
+}
+
+.btn-submit:hover {
+    background: linear-gradient(135deg, #fb923c 0%, #ea580c 100%);
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+    transform: translateY(-1px);
+    color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   Portal Navigation Tabs
+   -------------------------------------------------------------------------- */
+
+.portal-nav-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 24px 0;
+    padding: 8px 12px;
+    background: #ffffff;
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.portal-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: var(--radius-sm);
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.portal-nav-link:hover {
+    color: var(--text-primary);
+    background: #f1f5f9;
+}
+
+.portal-nav-link.active {
+    color: var(--saffron-main);
+    background: var(--saffron-light);
+    border: 1px solid var(--saffron-border);
+}
+
+.portal-nav-link.admin-link {
+    margin-left: auto;
+    color: var(--text-secondary);
+    border: 1px solid #e2e8f0;
+}
+
+.portal-nav-link.admin-link:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+}
+
+/* --------------------------------------------------------------------------
+   Flash Alerts
+   -------------------------------------------------------------------------- */
+
+.flash-messages-block {
+    margin-bottom: 20px;
+}
+
+.alert {
+    padding: 12px 18px;
+    border-radius: var(--radius-md);
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.alert-success {
+    background: var(--green-light);
+    border: 1px solid var(--green-border);
+    color: #166534;
+}
+
+.alert-error, .alert-danger {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #991b1b;
+}
+
+.alert-warning {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    color: #92400e;
+}
+
+.alert-info {
+    background: var(--chakra-light);
+    border: 1px solid var(--chakra-border);
+    color: #1e40af;
+}
+
+/* --------------------------------------------------------------------------
+   Arrestor Hero Banner & Statistics
+   -------------------------------------------------------------------------- */
+
+.arrestor-hero {
+    background: #ffffff;
+    border: 1px solid var(--card-border);
+    border-top: 4px solid var(--saffron-bright);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 22px;
+}
+
+.stat-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-md);
+    padding: 20px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--saffron-border);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.stat-val {
+    font-family: var(--font-display);
+    font-size: 2.1rem;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+}
+
+.stat-val.total {
+    color: var(--saffron-main);
+}
+
+.stat-val.completed {
+    color: var(--green-bright);
+}
+
+.stat-val.active {
+    color: var(--chakra-blue);
+}
+
+.stat-lbl {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+/* --------------------------------------------------------------------------
+   Live Case Tracker Box
+   -------------------------------------------------------------------------- */
+
+.tracker-box {
+    background: #ffffff;
+    border: 1px solid var(--card-border);
+    border-left: 4px solid var(--saffron-bright);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+.tracker-form {
+    display: flex;
+    gap: 12px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+}
+
+.tracker-input {
+    flex: 1;
+    min-width: 260px;
+    background: #ffffff;
+    border: 1px solid var(--input-border);
+    color: var(--text-primary);
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 0.98rem;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.tracker-input:focus {
+    border-color: var(--saffron-bright);
+    box-shadow: 0 0 0 3px var(--input-focus-glow);
+}
+
+.tracker-card {
+    margin-top: 20px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-md);
+    padding: 22px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.tracker-card.solved {
+    border-color: var(--green-border);
+    background: var(--green-light);
+}
+
+/* --------------------------------------------------------------------------
+   Guest Callout Banner
+   -------------------------------------------------------------------------- */
+
+.guest-cta {
+    background: var(--chakra-light);
+    border: 1px solid var(--chakra-border);
+    border-radius: var(--radius-md);
+    padding: 14px 20px;
+    margin: 18px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.92rem;
+    color: #1e3a8a;
+}
+
+/* --------------------------------------------------------------------------
+   Section Titles & Clean Data Table
+   -------------------------------------------------------------------------- */
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 28px 0 14px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.table-container {
+    background: #ffffff;
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow-x: auto;
+    margin-bottom: 26px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    text-align: left;
+}
+
+.data-table th {
+    background: #f8fafc;
+    color: var(--text-muted);
+    padding: 14px 18px;
+    font-weight: 700;
+    font-size: 0.84rem;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    border-bottom: 2px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+.data-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #f1f5f9;
+    color: var(--text-secondary);
+    vertical-align: middle;
+}
+
+.data-table tr {
+    transition: background-color 0.15s ease;
+}
+
+.data-table tr:hover td {
+    background: #fffaf5;
+}
+
+.highlight-col {
+    font-weight: 700;
+    color: var(--saffron-main);
+}
+
+.empty-cell {
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------------
+   Badges (Clean High Contrast)
+   -------------------------------------------------------------------------- */
+
+.badge-completed {
+    background: #dcfce7;
+    color: #15803d;
+    border: 1px solid #86efac;
+    font-weight: 800;
+    font-size: 0.78rem;
+    letter-spacing: 0.5px;
+    padding: 5px 12px;
+    border-radius: var(--radius-full);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+.badge-solved-giant {
+    background: #dcfce7;
+    color: #15803d;
+    border: 1px solid #86efac;
+    font-size: 0.92rem;
+    font-weight: 800;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.badge-investigating {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 5px 12px;
+    border-radius: var(--radius-full);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+.badge-pending {
+    background: #fffbeb;
+    color: #b45309;
+    border: 1px solid #fde68a;
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 5px 12px;
+    border-radius: var(--radius-full);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Action Controls (Priority Dropdowns)
+   -------------------------------------------------------------------------- */
+
+.action-cell-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.action-risk-select {
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.action-risk-select.level-high {
+    background: #fef2f2;
+    color: #b91c1c;
+    border-color: #fca5a5;
+}
+
+.action-risk-select.level-medium {
+    background: #fffbeb;
+    color: #b45309;
+    border-color: #fde68a;
+}
+
+.action-risk-select.level-low {
+    background: #f0fdf4;
+    color: #15803d;
+    border-color: #86efac;
+}
+
+.admin-action-del-link {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+.admin-action-del-link:hover {
+    background: #fee2e2;
+}
+
+/* --------------------------------------------------------------------------
+   Solved Cases Bulletin Cards Grid
+   -------------------------------------------------------------------------- */
+
+.case-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 18px;
+    margin-top: 16px;
+}
+
+.case-bulletin-card {
+    background: #ffffff;
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.case-bulletin-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--saffron-border);
+    box-shadow: var(--shadow-md);
+}
+
+.case-bulletin-card.completed {
+    border-top: 3px solid var(--india-green);
+}
+
+/* --------------------------------------------------------------------------
+   Report Case Form & Card
+   -------------------------------------------------------------------------- */
+
+.card {
+    background: #ffffff;
+    border: 1px solid var(--card-border);
+    border-top: 4px solid var(--india-green);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow-sm);
+}
+
+.card-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.fraud-form .form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.fraud-form .form-group {
+    margin-bottom: 16px;
+}
+
+.fraud-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.fraud-form input,
+.fraud-form select,
+.fraud-form textarea {
+    width: 100%;
+    padding: 11px 14px;
+    background: #ffffff;
+    border: 1px solid var(--input-border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-size: 0.92rem;
+    box-sizing: border-box;
+    outline: none;
+    transition: all 0.2s ease;
+    font-family: var(--font-sans);
+}
+
+.fraud-form input:focus,
+.fraud-form select:focus,
+.fraud-form textarea:focus {
+    border-color: var(--saffron-bright);
+    box-shadow: 0 0 0 3px var(--input-focus-glow);
+}
+
+/* --------------------------------------------------------------------------
+   Toast Notifications
+   -------------------------------------------------------------------------- */
+
+.fraud-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #0f172a;
+    color: #ffffff;
+    border-left: 4px solid var(--saffron-bright);
+    padding: 14px 22px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    z-index: 99999;
+    font-weight: 600;
+    font-size: 0.92rem;
+    animation: toastSlideIn 0.3s ease;
+}
+
+@keyframes toastSlideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Design
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .portal-nav-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .portal-nav-link.admin-link {
+        margin-left: 0;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .card {
+        padding: 20px;
+    }
+}

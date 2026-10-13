@@ -1,0 +1,373 @@
+/* ==========================================================================
+   FraudGuard Security Systems - Email Stylesheet
+   File: static/detector/css/email.css
+   Used for all FraudGuard Email Templates (100% External CSS, No Inline Styles)
+   ========================================================================== */
+
+/* Global Reset & Box Sizing */
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #0b1120;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #334155;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+.email-body {
+    margin: 0;
+    padding: 0;
+    background-color: #0b1120;
+}
+
+/* Outer Email Canvas Wrapper */
+.email-wrapper {
+    width: 100%;
+    background-color: #0b1120;
+    padding: 40px 15px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Central Content Container Card */
+.email-card {
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+    border: 1px solid #1e293b;
+}
+
+/* Header Styles */
+.email-header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.email-header-alert {
+    background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 50%, #dc2626 100%);
+    padding: 35px 25px;
+    text-align: center;
+}
+
+.email-header-notice {
+    background: #1e293b;
+    padding: 30px 25px;
+    text-align: center;
+}
+
+/* Header Badges & Headings */
+.email-badge {
+    display: inline-block;
+    background: rgba(99, 102, 241, 0.2);
+    border: 1px solid rgba(129, 140, 248, 0.4);
+    color: #c7d2fe;
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.email-badge-alert {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.email-header-title {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.5px;
+}
+
+.email-header-sub {
+    color: #94a3b8;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Body Content Section */
+.email-content {
+    padding: 36px 30px;
+    color: #334155;
+    line-height: 1.6;
+}
+
+.email-greeting {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0f172a;
+    margin: 0 0 14px 0;
+}
+
+.email-lead {
+    font-size: 15px;
+    line-height: 1.65;
+    color: #475569;
+    margin: 0 0 24px 0;
+}
+
+.email-section-heading {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 14px 0;
+}
+
+.email-section-title {
+    margin: 18px 0 10px 0;
+    color: #0f172a;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+/* Info Cards & Tables */
+.email-info-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #4f46e5;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+
+.email-info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.email-info-table td {
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+.email-status-active {
+    color: #16a34a;
+    font-weight: 600;
+    text-align: right;
+}
+
+.email-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #f8fafc;
+    border-radius: 8px;
+    margin: 14px 0;
+    border: 1px solid #e2e8f0;
+}
+
+.email-details-table td {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.email-param-label {
+    font-weight: 600;
+    color: #475569;
+    width: 35%;
+}
+
+.email-param-value {
+    color: #0f172a;
+    font-weight: 500;
+    text-align: right;
+}
+
+/* Feature Modules 2-Column Grid */
+.email-modules-grid {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+}
+
+.email-module-cell {
+    padding: 6px;
+    width: 50%;
+    vertical-align: top;
+}
+
+.email-module-box {
+    background: #f1f5f9;
+    border-radius: 10px;
+    padding: 14px 16px;
+    border: 1px solid #e2e8f0;
+    height: 100%;
+}
+
+.email-module-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 4px 0;
+}
+
+.email-module-desc {
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Reasons Box */
+.email-reasons-box {
+    background: #fff1f2;
+    border-left: 4px solid #e11d48;
+    padding: 12px 18px;
+    border-radius: 6px;
+    margin: 14px 0 20px 0;
+}
+
+.email-reasons-list {
+    margin: 0;
+    padding-left: 18px;
+    color: #9f1239;
+    font-size: 14px;
+}
+
+.email-reasons-list li {
+    margin-bottom: 6px;
+}
+
+/* Safety Tip Box */
+.email-safety-box {
+    background: #f0fdf4;
+    border-left: 4px solid #16a34a;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-top: 22px;
+}
+
+.email-safety-title {
+    color: #166534;
+    font-weight: 700;
+    font-size: 13px;
+    margin: 0 0 4px 0;
+}
+
+.email-safety-text {
+    margin: 0;
+    color: #047857;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.email-safety-list {
+    margin: 0;
+    padding-left: 18px;
+    color: #14532d;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* Call to Action Buttons */
+.email-btn-wrapper {
+    text-align: center;
+    margin: 28px 0;
+}
+
+.email-btn-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 34px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0 8px 18px rgba(79, 70, 229, 0.35);
+}
+
+.email-btn-reset {
+    display: inline-block;
+    background: #2563eb;
+    color: #ffffff;
+    padding: 12px 28px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* Notice / Log Deletion / Password Reset specifics */
+.email-log-box {
+    background: #f1f5f9;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 16px 0;
+    border: 1px solid #e2e8f0;
+    font-size: 14px;
+}
+
+.email-info-subtext {
+    font-size: 13px;
+    color: #64748b;
+    margin-top: 14px;
+}
+
+.email-fallback-link-box {
+    font-size: 13px;
+    color: #64748b;
+    margin-top: 20px;
+}
+
+.email-fallback-link {
+    color: #2563eb;
+    word-break: break-all;
+}
+
+.email-mute-text {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 25px;
+}
+
+/* Footer Section */
+.email-footer {
+    background-color: #0f172a;
+    color: #94a3b8;
+    padding: 24px 20px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.email-footer-brand {
+    margin: 0 0 6px 0;
+    color: #f8fafc;
+    font-weight: 700;
+}
+
+.email-footer-project {
+    margin: 0 0 8px 0;
+    color: #64748b;
+}
+
+.email-footer-notice {
+    margin: 0;
+    font-size: 11px;
+    color: #475569;
+}

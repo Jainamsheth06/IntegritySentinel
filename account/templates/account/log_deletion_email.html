@@ -1,0 +1,23 @@
+{% extends 'account/base_email.html' %}
+{% load static %}
+
+{% block email_title %}🗑️ Scan Log Removed Notice{% endblock %}
+
+{% block header_class %}email-header-notice{% endblock %}
+
+{% block email_header %}
+<h3 class="email-header-title">🛡️ Activity Notice</h3>
+<p class="email-header-sub">FraudGuard Audit Logs</p>
+{% endblock %}
+
+{% block email_content %}
+<p class="email-greeting">Hello <strong>{{ display_username|default:user.username }}</strong>,</p>
+<p class="email-lead">This is to confirm that a scan log record has been deleted from your account:</p>
+
+<div class="email-log-box">
+    <strong>Category:</strong> {{ log_type }}<br>
+    <strong>Details:</strong> {{ item_info }}
+</div>
+
+<p class="email-info-subtext">If you deleted this record, no further action is needed.</p>
+{% endblock %}

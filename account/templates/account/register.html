@@ -1,0 +1,88 @@
+{% extends 'account/base.html' %}
+
+{% block title %}Create Account - FraudGuard Unified Gateway{% endblock %}
+
+{% block content %}
+<div class="account-header">
+    <h2>🚀 Create Account</h2>
+    <p>Select your role to access the appropriate cyber security desk</p>
+</div>
+
+<form method="POST" action="{% url 'register' %}">
+    {% csrf_token %}
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <div class="account-form-group">
+            <label for="first_name">First Name</label>
+            <input type="text" id="first_name" name="first_name" class="account-input" required 
+                   placeholder="e.g. Jainam" autocomplete="given-name">
+        </div>
+
+        <div class="account-form-group">
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="last_name" class="account-input" required 
+                   placeholder="e.g. Sheth" autocomplete="family-name">
+        </div>
+    </div>
+
+    <div class="account-form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" class="account-input" required 
+               placeholder="Choose a username" autocomplete="username">
+    </div>
+
+    <div class="account-form-group">
+        <label for="role">Account Role & Access Level</label>
+        <select id="role" name="role" class="account-select" required onchange="handleRoleChange(this.value)">
+            <option value="detector" selected>🛡️ Fraud Detector (Threat Scanning & Citizen Protection)</option>
+            <option value="arrestor">⚖️ Fraud Arrestor (Law Enforcement & Case Investigation)</option>
+        </select>
+        <div id="role-hint" class="account-role-card">
+            🛡️ <strong>Detector Role:</strong> Access transactions, phishing emails, fake call & SMS anomaly scanners with threat score analytics.
+        </div>
+    </div>
+
+    <div class="account-form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" class="account-input" required 
+               placeholder="your.email@example.com" autocomplete="email">
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <div class="account-form-group">
+            <label for="password">Password (min 6)</label>
+            <input type="password" id="password" name="password" class="account-input" required 
+                   placeholder="••••••••" autocomplete="new-password">
+        </div>
+
+        <div class="account-form-group">
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" id="confirm_password" name="confirm_password" class="account-input" required 
+                   placeholder="••••••••" autocomplete="new-password">
+        </div>
+    </div>
+
+    <button type="submit" class="account-btn-submit">
+        🚀 Complete Registration & Enter
+    </button>
+</form>
+
+<script>
+    function handleRoleChange(role) {
+        const hint = document.getElementById('role-hint');
+        if (role === 'arrestor') {
+            hint.innerHTML = '⚖️ <strong>Arrestor Role:</strong> Access complaint registration, case tracking, priority escalation, and mark cases as <strong>COMPLETED</strong>.';
+            hint.style.borderColor = 'rgba(239, 68, 68, 0.4)';
+        } else {
+            hint.innerHTML = '🛡️ <strong>Detector Role:</strong> Access transactions, phishing emails, fake call & SMS anomaly scanners with threat score analytics.';
+            hint.style.borderColor = 'rgba(59, 130, 246, 0.4)';
+        }
+    }
+</script>
+
+<div class="account-footer-links">
+    Already have an account? <a href="{% url 'login' %}">Sign In</a>
+    <br><br>
+    <a href="{% url 'home' %}">← Return to Public Dashboard</a>
+</div>
+{% endblock %}

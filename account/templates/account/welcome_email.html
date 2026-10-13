@@ -1,0 +1,85 @@
+{% extends 'account/base_email.html' %}
+{% load static %}
+
+{% block email_title %}Welcome to FraudGuard - Account Activated{% endblock %}
+
+{% block header_class %}email-header{% endblock %}
+
+{% block email_header %}
+<span class="email-badge">🛡️ FraudGuard Security</span>
+<h1 class="email-header-title">Account Activated</h1>
+<p class="email-header-sub">AI-Powered Financial & Cyber Fraud Detection Suite</p>
+{% endblock %}
+
+{% block email_content %}
+<p class="email-greeting">Hello {{ display_username|default:user.username }}, 👋</p>
+
+<p class="email-lead">
+    Welcome to <strong>FraudGuard</strong>! Your personal cyber defense account has been successfully created. You now have full access to our multi-layer fraud detection tools.
+</p>
+
+<div class="email-info-card">
+    <table class="email-info-table">
+        <tr>
+            <td class="email-param-label">Username:</td>
+            <td class="email-param-value">{{ display_username|default:user.username }}</td>
+        </tr>
+        <tr>
+            <td class="email-param-label">Registered Email:</td>
+            <td class="email-param-value">{{ user.email }}</td>
+        </tr>
+        <tr>
+            <td class="email-param-label">Protection Status:</td>
+            <td class="email-status-active">● Active & Ready</td>
+        </tr>
+    </table>
+</div>
+
+<div class="email-section-heading">
+    ⚡ Included Security Analyzers
+</div>
+
+<table class="email-modules-grid">
+    <tr>
+        <td class="email-module-cell">
+            <div class="email-module-box">
+                <p class="email-module-title">💳 Transactions</p>
+                <p class="email-module-desc">Scans amounts, Luhn algorithm card checks, velocity & high-risk thresholds.</p>
+            </div>
+        </td>
+        <td class="email-module-cell">
+            <div class="email-module-box">
+                <p class="email-module-title">📧 Phishing Emails</p>
+                <p class="email-module-desc">Detects spoofed domains, urgent extortion language & malicious links.</p>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="email-module-cell">
+            <div class="email-module-box">
+                <p class="email-module-title">📞 Fraud Calls</p>
+                <p class="email-module-desc">Identifies digital arrest threats, impersonation of police, CBI & banks.</p>
+            </div>
+        </td>
+        <td class="email-module-cell">
+            <div class="email-module-box">
+                <p class="email-module-title">💬 Message Inspector</p>
+                <p class="email-module-desc">Catches fake electricity disconnection, lottery & risky APK install lures.</p>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div class="email-btn-wrapper">
+    <a href="{{ dashboard_url|default:'http://127.0.0.1:8000/' }}" class="email-btn-primary" target="_blank">
+        Access Your Security Dashboard →
+    </a>
+</div>
+
+<div class="email-safety-box">
+    <p class="email-safety-title">🔒 FraudGuard Security Reminder:</p>
+    <p class="email-safety-text">
+        Never share your one-time passwords (OTP) or UPI PIN with anyone claiming to be bank or government officials. FraudGuard will never call to request your passwords or PINs.
+    </p>
+</div>
+{% endblock %}

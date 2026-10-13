@@ -1,0 +1,50 @@
+{% extends 'account/base_email.html' %}
+{% load static %}
+
+{% block email_title %}🚨 High-Risk Fraud Alert - FraudGuard{% endblock %}
+
+{% block header_class %}email-header-alert{% endblock %}
+
+{% block email_header %}
+<h2 class="email-header-title">🚨 High-Risk Fraud Alert</h2>
+<div class="email-badge-alert">{{ fraud_type }} | Risk Score: {{ risk_score }}%</div>
+{% endblock %}
+
+{% block email_content %}
+<p class="email-greeting">Hello <strong>{{ username_display }}</strong>,</p>
+<p class="email-lead">
+    FraudGuard has detected and intercepted a suspicious interaction during a scan check.
+</p>
+
+<h4 class="email-section-title">Captured Parameters:</h4>
+<table class="email-details-table">
+    {% for key, val in details_dict.items %}
+    <tr>
+        <td class="email-param-label">{{ key }}:</td>
+        <td class="email-param-value">{{ val }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h4 class="email-section-title">Flagged Anomaly Indicators:</h4>
+<div class="email-reasons-box">
+    <ul class="email-reasons-list">
+        {% if reasons %}
+            {% for r in reasons %}
+                <li>{{ r }}</li>
+            {% endfor %}
+        {% else %}
+            <li>High-risk anomaly pattern flagged</li>
+        {% endif %}
+    </ul>
+</div>
+
+<div class="email-safety-box">
+    <div class="email-safety-title">Recommended Security Actions:</div>
+    <ul class="email-safety-list">
+        <li>Do NOT authorize pending transactions or share OTPs.</li>
+        <li>Do NOT click suspicious links or download remote access tools (AnyDesk, TeamViewer).</li>
+        <li>Verify credentials through official bank / company channels directly.</li>
+    </ul>
+</div>
+{% endblock %}

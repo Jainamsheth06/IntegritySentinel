@@ -1,0 +1,439 @@
+/* ==========================================================================
+   FraudGuard - Unified Account & Authentication Stylesheet
+   Theme: Clean Light & User-Friendly Indian Flag Theme
+   Location: account/static/account/css/style.css
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap');
+
+:root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-display: 'Outfit', sans-serif;
+
+    /* Base Palettes */
+    --bg-page: #f8fafc;
+    --card-bg: #ffffff;
+    --card-border: #e2e8f0;
+
+    /* Indian Flag (Tiranga) Colors */
+    --saffron-main: #ea580c;
+    --saffron-bright: #ff671f;
+    --saffron-light: #fff7ed;
+    --saffron-border: #fed7aa;
+
+    --chakra-navy: #000080;
+    --chakra-blue: #1d4ed8;
+    --chakra-light: #eff6ff;
+
+    --india-green: #138808;
+    --green-bright: #16a34a;
+    --green-light: #f0fdf4;
+    --green-border: #86efac;
+
+    /* Text Colors */
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+    --text-light: #94a3b8;
+
+    /* Inputs & Forms */
+    --input-bg: #ffffff;
+    --input-border: #cbd5e1;
+    --input-focus-border: #ff671f;
+    --input-focus-glow: rgba(255, 103, 31, 0.15);
+
+    /* Gradients */
+    --tiranga-ribbon: linear-gradient(90deg, #FF671F 0%, #FF9933 33%, #FFFFFF 48%, #000080 50%, #FFFFFF 52%, #10B981 66%, #138808 100%);
+    --brand-gradient: linear-gradient(135deg, #ea580c 0%, #000080 50%, #138808 100%);
+    --btn-saffron: linear-gradient(135deg, #ff671f 0%, #ea580c 100%);
+
+    /* Elevation */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 16px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+    --shadow-lg: 0 10px 25px -3px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-full: 9999px;
+}
+
+body.account-body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: var(--bg-page);
+    background-image: 
+        radial-gradient(circle at 50% 0%, rgba(255, 103, 31, 0.08) 0%, rgba(248, 250, 252, 0.96) 45%, rgba(19, 136, 8, 0.08) 100%),
+        url('/media/bg.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: var(--font-sans);
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* --------------------------------------------------------------------------
+   Account Navigation Bar
+   -------------------------------------------------------------------------- */
+
+.account-nav {
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--card-border);
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: var(--shadow-sm);
+}
+
+.account-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.account-brand-icon {
+    font-size: 1.75rem;
+    transition: transform 0.2s ease;
+}
+
+.account-brand:hover .account-brand-icon {
+    transform: scale(1.08);
+}
+
+.account-brand-title {
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.account-brand-badge {
+    background: var(--saffron-light);
+    border: 1px solid var(--saffron-border);
+    color: var(--saffron-main);
+    font-size: 0.74rem;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-left: 8px;
+}
+
+.account-nav-links {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.account-portal-btn {
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.account-btn-detector {
+    background: var(--saffron-light);
+    color: var(--saffron-main);
+    border: 1px solid var(--saffron-border);
+}
+
+.account-btn-detector:hover {
+    background: #ffedd5;
+    transform: translateY(-1px);
+}
+
+.account-btn-arrestor {
+    background: var(--green-light);
+    color: var(--green-bright);
+    border: 1px solid var(--green-border);
+}
+
+.account-btn-arrestor:hover {
+    background: #dcfce7;
+    transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   Auth Centered Clean Card
+   -------------------------------------------------------------------------- */
+
+.account-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 16px;
+}
+
+.account-glass-card {
+    width: 100%;
+    max-width: 480px;
+    background: #ffffff;
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg);
+    padding: 38px 32px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    animation: accountCardPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes accountCardPop {
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.account-card-glow-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--tiranga-ribbon);
+}
+
+.account-header {
+    text-align: center;
+    margin-bottom: 26px;
+}
+
+.account-header h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    margin: 0 0 8px 0;
+    color: var(--text-primary);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+.account-header p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Flash Messages
+   -------------------------------------------------------------------------- */
+
+.account-messages-wrapper {
+    width: 100%;
+    max-width: 480px;
+    margin-bottom: 16px;
+}
+
+.account-msg {
+    padding: 12px 18px;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.4;
+    animation: accountMsgFade 0.25s ease;
+}
+
+@keyframes accountMsgFade {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.account-msg.success {
+    background: var(--green-light);
+    border: 1px solid var(--green-border);
+    color: #166534;
+}
+
+.account-msg.error {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #991b1b;
+}
+
+.account-msg.info {
+    background: var(--chakra-light);
+    border: 1px solid var(--chakra-border);
+    color: #1e40af;
+}
+
+/* --------------------------------------------------------------------------
+   Form Controls
+   -------------------------------------------------------------------------- */
+
+.account-form-group {
+    margin-bottom: 20px;
+}
+
+.account-form-group label {
+    display: block;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 7px;
+    letter-spacing: 0.01em;
+}
+
+.account-input, .account-select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--input-border);
+    background: #ffffff;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-family: var(--font-sans);
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.account-input:focus, .account-select:focus {
+    border-color: var(--saffron-bright);
+    box-shadow: 0 0 0 3px var(--input-focus-glow);
+}
+
+.account-input::placeholder {
+    color: var(--text-light);
+}
+
+.account-select {
+    cursor: pointer;
+}
+
+.account-select option {
+    background: #ffffff;
+    color: var(--text-primary);
+}
+
+/* Saffron Submit Button */
+.account-btn-submit {
+    width: 100%;
+    padding: 13px;
+    border-radius: var(--radius-sm);
+    background: var(--btn-saffron);
+    color: #ffffff;
+    border: none;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(234, 88, 12, 0.25);
+    transition: all 0.2s ease;
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.account-btn-submit:hover {
+    background: linear-gradient(135deg, #fb923c 0%, #ea580c 100%);
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+    transform: translateY(-1px);
+}
+
+.account-btn-submit:active {
+    transform: translateY(0);
+}
+
+.account-role-card {
+    background: #f8fafc;
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    margin-top: 16px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.account-footer-links {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.account-footer-links a {
+    color: var(--saffron-main);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.15s ease;
+}
+
+.account-footer-links a:hover {
+    color: #c2410c;
+    text-decoration: underline;
+}
+
+.account-page-footer {
+    text-align: center;
+    padding: 22px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    border-top: 1px solid var(--card-border);
+}
+
+@media (max-width: 640px) {
+    .account-nav {
+        padding: 14px 16px;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .account-glass-card {
+        padding: 26px 20px;
+        border-radius: var(--radius-md);
+    }
+    .account-container {
+        padding: 24px 12px;
+    }
+}

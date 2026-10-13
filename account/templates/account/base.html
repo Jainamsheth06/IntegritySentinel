@@ -1,0 +1,59 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}FraudGuard - Unified Account Gateway{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'account/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'account/css/extra.css' %}">
+    <link rel="stylesheet" href="{% static 'account/css/background.css' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="account-body">
+
+    <nav class="account-nav">
+        <a href="{% url 'home' %}" class="account-brand">
+            <span class="account-brand-icon">🛡️</span>
+            <div>
+                <span class="account-brand-title">FraudGuard</span>
+                <span class="account-brand-badge">Auth Gateway</span>
+            </div>
+        </a>
+
+        <div class="account-nav-links">
+            <a href="{% url 'home' %}" class="account-portal-btn account-btn-detector" title="Access Threat Detector Portal">
+                🛡️ Threat Detector
+            </a>
+            <a href="{% url 'arrestor_home' %}" class="account-portal-btn account-btn-arrestor" title="Access Fraud Arrestor Investigation Desk">
+                ⚖️ Case Arrestor
+            </a>
+        </div>
+    </nav>
+
+    <main class="account-container">
+        {% if messages %}
+        <div class="account-messages-wrapper">
+            {% for message in messages %}
+            <div class="account-msg {{ message.tags|default:'info' }}">
+                {% if message.tags == 'success' %}✅{% elif message.tags == 'error' %}⚠️{% else %}ℹ️{% endif %}
+                <span>{{ message }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="account-glass-card">
+            <div class="account-card-glow-bar"></div>
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer class="account-page-footer">
+        🔒 FraudGuard Cyber Threat & Financial Fraud Defense Engine &bull; Dual-Panel Unified Auth &bull; Secured by Jainam Sheth
+    </footer>
+
+</body>
+</html>
